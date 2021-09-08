@@ -1,0 +1,17 @@
+body {
+    margin: 0px;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-position: 50% 50%;
+    background-size: cover;
+    background: url("https://wallpaperaccess.com/full/1483728.jpg");
+}
+
+.header {
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+    margin-top:20%;
+}
