@@ -3,11 +3,21 @@
         <div *ngFor="let image of imageList">
             <div class="card center" style="width: 613px;">
                 <div class="container center">
-                    <div>
-                        <img class="pfp" src="https://i.postimg.cc/htVmhMcn/58429400a6515b1e0ad75acc.png">
-                        <div class="poster">{{image.title}}</div>
-                    </div>
+                    <img class="pfp" src="https://i.postimg.cc/htVmhMcn/58429400a6515b1e0ad75acc.png">
+                    <div class="poster">{{image.title}}</div>
                     <img class="post" [src]="image.url">
+
+                    <i class="like" ngClass="far fa-heart"
+                    onMouseOver="this.style.cursor='pointer'"
+                    ></i>
+
+                    <div class="des">
+                        <b>NASA </b>{{image.explanation}}
+                    </div>
+
+                    <div class="date">
+                        {{image.date}}
+                    </div>
                 </div>
             </div>
         </div>

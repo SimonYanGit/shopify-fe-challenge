@@ -36,3 +36,22 @@
     width: 32px;
     height: 32px;
 }
+
+.like {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    font-size: 1.5rem;
+}
+
+.des {
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.date {
+    font-size: 11px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
