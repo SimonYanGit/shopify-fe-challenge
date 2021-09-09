@@ -26,7 +26,8 @@ body {
 .button {
     margin:20px auto;
     display:block;
-    border:0.2em solid #a1a1a1;
+    border:0.2em solid #aaaaaa;
+    background-color: #aaaaaa;
     box-sizing: border-box;
     text-decoration:none;
     text-transform:uppercase;
