@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 export interface Image {
   date: string;
@@ -15,12 +16,14 @@ export interface Image {
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  public startDate: FormGroup;
   public imageList: Image[];
   public likedImages = new Set([]);
   public image: Image;
   public loading: boolean;
 
   constructor(
+    private fb: FormBuilder,
     private http: HttpClient
   ) {
     this.imageList = [];
@@ -33,12 +36,39 @@ export class MainComponent implements OnInit {
         this.likedImages.add(loadLiked[i]);
       }
     }
+    this.initForm();
+    this.getImages();
+  }
+
+  private initForm(): void {
+    this.startDate = this.fb.group({
+      startDate: ''
+    })
+  }
+
+  public handleLike(post: Image) {
+    if(!post.liked) {
+      this.likedImages.add(post.url);
+    }
+    else {
+      this.likedImages.delete(post.url);
+    }
+    post.liked = !post.liked;
+
+    localStorage.setItem('likedImages', JSON.stringify([...this.likedImages]));
+  }
+
+  public onSubmit(): void {
+    this.getImages(this.startDate.value['startDate']);
+  }
+
+  public getImages(date: string = "2021-09-01") {
     this.loading = true;
     this.http.get<Image[]>(
       'https://api.nasa.gov/planetary/apod', 
       {
         params: {
-          'start_date' : '2021-09-01',
+          'start_date' : date,
           'api_key' : 'oRDfUpx9qgqFYOfForjA4RH75Yoeg1eyMRQGLQi2'
         }
       }
@@ -57,17 +87,5 @@ export class MainComponent implements OnInit {
         this.loading = false;
       }
     )
-  }
-
-  public handleLike(post: Image) {
-    if(!post.liked) {
-      this.likedImages.add(post.url);
-    }
-    else {
-      this.likedImages.delete(post.url);
-    }
-    post.liked = !post.liked;
-
-    localStorage.setItem('likedImages', JSON.stringify([...this.likedImages]));
   }
 }

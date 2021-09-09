@@ -1,9 +1,12 @@
 <div *ngIf="loading" class="loading">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
-
-<div>
-    <app-header></app-header>
+<div class="empty"></div>
+<div class="hdr">
+    <h1><b>Spacestagram</b></h1>
+    <form [formGroup]="startDate" (ngSubmit)="onSubmit()">
+        <input class="search" type="text" formControlName="startDate" placeholder="YYYY-MM-DD">
+    </form>
 </div>
 
 <body>
