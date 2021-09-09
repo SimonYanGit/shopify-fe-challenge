@@ -20,6 +20,7 @@ export interface Image {
 })
 export class MainComponent implements OnInit {
   public imageList: Image[];
+  public likedImages = new Set([]);
 
   constructor(
     private http: HttpClient,
@@ -43,6 +44,14 @@ export class MainComponent implements OnInit {
   }
 
   public handleLike(post: Image) {
+    if(!post.liked) {
+      this.likedImages.add(post.url);
+    }
+    else {
+      this.likedImages.delete(post.url);
+    }
     post.liked = !post.liked;
+
+    localStorage.setItem('likedImages', JSON.stringify([...this.likedImages]));
   }
 }
