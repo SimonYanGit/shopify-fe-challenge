@@ -1,4 +1,4 @@
-<div *ngIf="loaded; then displayImages"></div>
+<div *ngIf="imageList; then displayImages"></div>
     <ng-template #displayImages>
         <div *ngFor="let image of imageList">
             <div class="card center" style="width: 613px;">
@@ -7,8 +7,9 @@
                     <div class="poster">{{image.title}}</div>
                     <img class="post" [src]="image.url">
 
-                    <i class="like" ngClass="far fa-heart"
+                    <i class="like" [ngClass]="image.liked == 1 ? 'fas fa-heart highlight' : 'far fa-heart'"
                     onMouseOver="this.style.cursor='pointer'"
+                    (click)="handleLike(image)"
                     ></i>
 
                     <div class="des">

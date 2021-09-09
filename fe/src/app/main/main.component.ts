@@ -10,6 +10,7 @@ export interface Image {
   service_version: string;
   title: string;
   url: string;
+  liked: boolean;
 }
 
 @Component({
@@ -19,7 +20,6 @@ export interface Image {
 })
 export class MainComponent implements OnInit {
   public imageList: Image[];
-  public loaded: boolean;
 
   constructor(
     private http: HttpClient,
@@ -37,10 +37,12 @@ export class MainComponent implements OnInit {
       }
     ).subscribe(
       res => {
-        this.loaded = true;
         this.imageList = res;
       }
     )
   }
 
+  public handleLike(post: Image) {
+    post.liked = !post.liked;
+  }
 }
