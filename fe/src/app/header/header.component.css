@@ -1,7 +1,14 @@
-.padding{
-    padding-top:10px!important;
+.hdr{
+    background-color: white;
     border-bottom: 1px solid rgb(194, 194, 194);
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 99;
 }
-.center{
-    text-align:center!important
+
+.empty {
+    height: 80px;
 }

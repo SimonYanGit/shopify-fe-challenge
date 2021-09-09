@@ -38,7 +38,7 @@ export class MainComponent implements OnInit {
       'https://api.nasa.gov/planetary/apod', 
       {
         params: {
-          'start_date' : '2021-08-20',
+          'start_date' : '2021-09-01',
           'api_key' : 'oRDfUpx9qgqFYOfForjA4RH75Yoeg1eyMRQGLQi2'
         }
       }
