@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export interface Image {
-  copyright: string;
   date: string;
   explanation: string;
-  hdurl: string;
-  media_type: string;
-  service_version: string;
   title: string;
   url: string;
   liked: boolean;
@@ -21,12 +17,21 @@ export interface Image {
 export class MainComponent implements OnInit {
   public imageList: Image[];
   public likedImages = new Set([]);
+  public image: Image;
 
   constructor(
     private http: HttpClient,
-  ) { }
+  ) {
+    this.imageList = [];
+  }
 
   ngOnInit(): void {
+    let loadLiked = JSON.parse(localStorage.getItem('likedImages'));
+    if(loadLiked) {
+      for(var i=0;i<loadLiked.length;i++){
+        this.likedImages.add(loadLiked[i]);
+      }
+    }
     this.http.get<Image[]>(
       'https://api.nasa.gov/planetary/apod', 
       {
@@ -38,7 +43,16 @@ export class MainComponent implements OnInit {
       }
     ).subscribe(
       res => {
-        this.imageList = res;
+        for(var i=0;i<res.length;i++){
+          this.image = res[i];
+          if(this.likedImages.has(res[i].url)) {
+            this.image.liked = true;
+          }
+          else {
+            this.image.liked = false;
+          }
+          this.imageList.push(this.image);
+        }
       }
     )
   }
