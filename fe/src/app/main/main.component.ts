@@ -44,7 +44,7 @@ export class MainComponent implements OnInit {
       }
     ).subscribe(
       res => {
-        for(var i=0;i<res.length;i++){
+        for(var i=res.length-1;i>=0;i--){
           this.image = res[i];
           if(this.likedImages.has(res[i].url)) {
             this.image.liked = true;
