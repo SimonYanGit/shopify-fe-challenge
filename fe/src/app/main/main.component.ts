@@ -19,6 +19,7 @@ export interface Image {
 })
 export class MainComponent implements OnInit {
   public imageList: Image[];
+  public loaded: boolean;
 
   constructor(
     private http: HttpClient,
@@ -30,12 +31,13 @@ export class MainComponent implements OnInit {
       {
         params: {
           'start_date' : '2021-09-01',
-          'end_date' : '2021-09-08',
+          'end_date' : '2021-09-04',
           'api_key' : 'oRDfUpx9qgqFYOfForjA4RH75Yoeg1eyMRQGLQi2'
         }
       }
     ).subscribe(
       res => {
+        this.loaded = true;
         this.imageList = res;
       }
     )

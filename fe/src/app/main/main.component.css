@@ -1,18 +1,14 @@
 .card {
-    text-align: center;
     background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-
-    border-radius: 5px;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border: 1px solid rgb(184, 184, 184);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 4px;
 }
 
 .container {
-    padding: 16px 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .center {
@@ -21,7 +17,7 @@
     margin-right: auto;
 }
 
-.main {
-    width:20%;
-    margin-top:20%;
+img {
+    width: 614px;
+    height: 614px;
 }
