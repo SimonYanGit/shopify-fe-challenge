@@ -18,9 +18,10 @@ export class MainComponent implements OnInit {
   public imageList: Image[];
   public likedImages = new Set([]);
   public image: Image;
+  public loading: boolean;
 
   constructor(
-    private http: HttpClient,
+    private http: HttpClient
   ) {
     this.imageList = [];
   }
@@ -32,12 +33,12 @@ export class MainComponent implements OnInit {
         this.likedImages.add(loadLiked[i]);
       }
     }
+    this.loading = true;
     this.http.get<Image[]>(
       'https://api.nasa.gov/planetary/apod', 
       {
         params: {
-          'start_date' : '2021-09-01',
-          'end_date' : '2021-09-04',
+          'start_date' : '2021-08-20',
           'api_key' : 'oRDfUpx9qgqFYOfForjA4RH75Yoeg1eyMRQGLQi2'
         }
       }
@@ -53,6 +54,7 @@ export class MainComponent implements OnInit {
           }
           this.imageList.push(this.image);
         }
+        this.loading = false;
       }
     )
   }
