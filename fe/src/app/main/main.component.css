@@ -3,7 +3,7 @@
     border: 1px solid rgb(184, 184, 184);
     margin-top: 1%;
     margin-bottom: 1%;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
 .container {
@@ -17,7 +17,22 @@
     margin-right: auto;
 }
 
-img {
+.poster {
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 7px;
+}
+
+.post {
     width: 614px;
     height: 614px;
+}
+
+.pfp {
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    width: 32px;
+    height: 32px;
 }

@@ -3,8 +3,11 @@
         <div *ngFor="let image of imageList">
             <div class="card center" style="width: 613px;">
                 <div class="container center">
-                    <div>{{image.title}}</div>
-                    <img [src]="image.url">
+                    <div>
+                        <img class="pfp" src="https://i.postimg.cc/htVmhMcn/58429400a6515b1e0ad75acc.png">
+                        <div class="poster">{{image.title}}</div>
+                    </div>
+                    <img class="post" [src]="image.url">
                 </div>
             </div>
         </div>
