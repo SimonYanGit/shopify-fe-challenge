@@ -1,4 +1,6 @@
 # shopify-fe-challenge
+Hosted on heroku: https://shopify-fe.herokuapp.com
+
 Spacestagram
 pages:
 - home
