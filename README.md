@@ -2,6 +2,7 @@
 Hosted on heroku: https://shopify-fe.herokuapp.com
 
 Spacestagram
+
 Pages:
 - Home
 ![image](https://user-images.githubusercontent.com/46652214/133345801-edc30b90-7ec7-4b60-9f23-fb9e2f5294b3.png)
