@@ -1,5 +1,6 @@
 # Spacestagram - Shopify Frontend Challenge Winter 2022
 Hosted on heroku: https://shopify-fe.herokuapp.com
+
 Created with Angular
 
 Pages:
